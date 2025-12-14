@@ -13,5 +13,7 @@ class Phone extends Model
         'model',
         'unit',
         'qty',
+        'image', // now for storing URL/path
+
     ];
 }

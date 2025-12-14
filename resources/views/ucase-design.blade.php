@@ -9,7 +9,7 @@
                     @foreach($phones as $phone)
                         <label for="apple"
                             class="w-full h-50 cursor-pointer flex flex-center bg-no-repeat bg-center bg-contain                                                                                      "
-                            style="background-image: url('{{ asset('images/2Case-collage-2-pics-p-500.png') }}');">
+                            style="background-image: url('{{ asset($phone->image) }}');">
                             <input type="checkbox" id="apple" class="hidden peer" />
                             <p class="mt-50 mb-10 text-center w-full">{{ $phone->model }}</p>
                         </label>
