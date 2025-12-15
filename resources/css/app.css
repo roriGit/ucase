@@ -9,3 +9,15 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+.header {
+    background-image: url('../images/ucase---overlay-pattern.png') !important;
+    background-position: 50%;
+    background-repeat: repeat;
+    background-size: contain;
+    margin-top: 0;
+    padding-top: 3em;
+    padding-bottom: 0;
+    position: relative;
+    overflow: hidden;
+}
