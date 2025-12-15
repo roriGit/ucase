@@ -44,7 +44,7 @@ public function store(Request $request)
 }
 public function edit(Phone $phone)
 {
-    return view('phones.edit', compact('phone'));
+    return view('phones-edit', compact('phone'));
 }
 
 public function update(Request $request, Phone $phone)
