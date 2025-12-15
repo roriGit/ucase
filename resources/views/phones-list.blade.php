@@ -26,7 +26,7 @@
 
             <!-- Drag & Drop Image Upload -->
             <div class="border-2 border-dashed rounded-lg p-6 text-center cursor-pointer
-               hover:border-blue-500 transition relative" onclick="document.getElementById('image').click()"
+                   hover:border-blue-500 transition relative" onclick="document.getElementById('image').click()"
                 ondragover="event.preventDefault()" ondrop="handleDrop(event)">
                 <img id="preview" class="hidden mx-auto mb-3 max-h-32 object-contain" />
 
@@ -55,6 +55,7 @@
                         <th class="px-4 py-2 text-left">Unit</th>
                         <th class="px-4 py-2 text-left">Qty</th>
                         <th class="px-4 py-2 text-left">Image</th>
+                        <th class="px-4 py-2 text-left">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -69,6 +70,7 @@
                                     alt="{{ $phone->model }}">
                             @endif
                             </td>
+                            <td></td>
                         </tr>
                     @endforeach
                 </tbody>

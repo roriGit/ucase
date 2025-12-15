@@ -36,5 +36,7 @@ Route::middleware('auth')->group(function () {
 });
 
 //these will need to be added for admin
-    Route::get('/phones', [UCaseDesignController::class, 'list'])->name('phones.index');
-    Route::post('/phones', [UCaseDesignController::class, 'store'])->name('phones.store');
+Route::get('/phones', [UCaseDesignController::class, 'list'])->name('phones.index');
+Route::post('/phones', [UCaseDesignController::class, 'store'])->name('phones.store');
+Route::get('/phones/{phone}/edit', [UCaseDesignController::class, 'edit'])->name('phones.edit');
+Route::put('/phones/{phone}', [UCaseDesignController::class, 'update'])->name('phones.update');
