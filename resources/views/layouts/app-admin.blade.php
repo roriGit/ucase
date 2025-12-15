@@ -206,9 +206,9 @@
             @endauth
         </div>
     </nav> --}}
-
-    @yield('content')
-
+    <div class="py-10">
+        @yield('content')
+    </div>
     <div class="template-footer">
         <div class="container-1440 full-width">
             <div class="footer-grid">
