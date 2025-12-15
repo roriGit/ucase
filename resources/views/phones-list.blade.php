@@ -26,8 +26,9 @@
 
             <!-- Drag & Drop Image Upload -->
             <div class="border-2 border-dashed rounded-lg p-6 text-center cursor-pointer
-                   hover:border-blue-500 transition relative" onclick="document.getElementById('image').click()"
-                ondragover="event.preventDefault()" ondrop="handleDrop(event)">
+                                   hover:border-blue-500 transition relative"
+                onclick="document.getElementById('image').click()" ondragover="event.preventDefault()"
+                ondrop="handleDrop(event)">
                 <img id="preview" class="hidden mx-auto mb-3 max-h-32 object-contain" />
 
                 <p id="upload-text" class="text-gray-600">
@@ -70,7 +71,16 @@
                                     alt="{{ $phone->model }}">
                             @endif
                             </td>
-                            <td></td>
+                            <td>
+                                <form action="{{ route('phones.edit', $phone->id) }}" method="POST" ">
+                                @csrf
+                                @method('GET')
+
+                                <button class=" text-red-600 hover:underline">
+                                    Edit
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
