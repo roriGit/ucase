@@ -4,9 +4,8 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UCaseDesignController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [UCaseDesignController::class, 'welcome'])->name('welcome');
+
 
 Route::get('/design', [UCaseDesignController::class, 'index'])->name('products');
 
@@ -35,8 +34,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/payfast/cancel', [App\Http\Controllers\PayFastController::class, 'cancel'])->name('payment.cancel');
 });
 
+Route::get('/contact', [UCaseDesignController::class, 'contact'])->name('ucase.contact');
 //these will need to be added for admin
 Route::get('/phones', [UCaseDesignController::class, 'list'])->name('phones.index');
 Route::post('/phones', [UCaseDesignController::class, 'store'])->name('phones.store');
 Route::get('/phones/{phone}/edit', [UCaseDesignController::class, 'edit'])->name('phones.edit');
 Route::put('/phones/{phone}', [UCaseDesignController::class, 'update'])->name('phones.update');
+Route::get('/phones/create_design', [UCaseDesignController::class, 'create_design'])
+     ->name('phones.create_design');
+Route::post('/phones/create_design', [UCaseDesignController::class, 'store_case_design'])->name('phones.store_case_design');
+
+Route::get('/phone_case_requests', [UCaseDesignController::class, 'phone_case_requests'])->name('admin.phone_case_requests');
+Route::post('/phone_case_requests/status_change', [UCaseDesignController::class, 'phone_case_requests_status_change'])->name('admin.phone_case_requests.status_change');
+
