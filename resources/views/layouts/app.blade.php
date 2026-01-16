@@ -32,10 +32,6 @@
     <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
     <link href="images/webclip.png" rel="apple-touch-icon">
     @vite('resources/css/app.css')
-    @vite('resources/css/normalize.css')
-    @vite('resources/css/webflow.css')
-    @vite('resources/css/u-case.webflow.css')
-    @vite('resources/css/case.css')
 </head>
 
 <body class="body-2">
@@ -44,15 +40,14 @@
             data-collapse="medium" role="banner" data-no-scroll="1" data-duration="400" data-doc-height="1">
             <div class="nav-grid-container">
                 <div id="w-node-da75a56e-7b3b-26b8-c721-a123e3e4a8ff-67d5300b" class="div-block"><img
-                        src="images/Ucase-logo-final-02.png" loading="lazy" width="130" sizes="130px" alt=""
-                        srcset="images/Ucase-logo-final-02-p-500.png 500w, images/Ucase-logo-final-02-p-800.png 800w, images/Ucase-logo-final-02-p-1080.png 1080w, images/Ucase-logo-final-02.png 1920w"
-                        class="image"></div>
-                <a id="w-node-_4b84131c-0754-dfda-d19c-e6503af5a026-67d5300b" href="index.html" aria-current="page"
+                        src="{{ asset('images/Ucase-logo-final-02.png') }}" loading="lazy" width="130" sizes="130px"
+                        alt="" srcset="" class="image"></div>
+                <a id="w-node-_4b84131c-0754-dfda-d19c-e6503af5a026-67d5300b" href="/" aria-current="page"
                     class="logo-link-block w-inline-block w--current"></a>
                 <nav role="navigation" id="w-node-bb0bf636-1622-2bac-85b3-47f867d53010-67d5300b"
                     class="nav-menu w-nav-menu">
                     <div class="nav-menu-wrapper">
-                        <a id="w-node-bb0bf636-1622-2bac-85b3-47f867d5301a-67d5300b" href="contact-us.html"
+                        <a id="w-node-bb0bf636-1622-2bac-85b3-47f867d5301a-67d5300b" href="/contact"
                             class="navigation-button w-button">Contact Us</a>
                     </div>
                     <div class="short-fur-pattern hide-desktop"></div>
@@ -208,7 +203,7 @@
     </nav> --}}
 
     @yield('content')
- 
+
     <footer data-w-id="e390ad44-2592-9581-74e8-99c94401d838" class="footer">
         <div class="container-1440">
             <div class="footer-grid">
@@ -280,5 +275,74 @@
 
 @vite('resources/js/app.js')
 @vite('resources/js/webflow.js')
+<script>
+    function showFileName(input) {
+        if (input.files.length > 0) {
+            document.getElementById('file-name').innerText =
+                input.files[0].name;
+        }
+    }
+
+    function previewImage(input) {
+        const file = input.files[0];
+        if (!file) return;
+
+        validatePortraitImage(file);
+    }
+
+    function handleDrop(event) {
+        event.preventDefault();
+        const file = event.dataTransfer.files[0];
+        if (!file) return;
+
+        document.getElementById('image').files = event.dataTransfer.files;
+        validatePortraitImage(file);
+    }
+
+    function validatePortraitImage(file) {
+        if (!file.type.startsWith('image/')) {
+            alert('Please upload a valid image file.');
+            return resetInput();
+        }
+
+        const img = new Image();
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            img.src = e.target.result;
+        };
+
+        img.onload = function () {
+            if (img.height <= img.width) {
+                alert('Only portrait images are allowed (height must be greater than width).');
+                return resetInput();
+            }
+
+            // ✅ Valid portrait image
+            document.getElementById('preview').src = img.src;
+            document.getElementById('preview').classList.remove('hidden');
+            document.getElementById('upload-text').classList.add('hidden');
+            document.getElementById('file-name').textContent = file.name;
+        };
+
+        reader.readAsDataURL(file);
+    }
+
+    function resetInput() {
+        const input = document.getElementById('image');
+        input.value = '';
+        document.getElementById('preview').classList.add('hidden');
+        document.getElementById('upload-text').classList.remove('hidden');
+        document.getElementById('file-name').textContent = '';
+    }
+
+
+    function handleDrop(event) {
+        event.preventDefault();
+        const input = document.getElementById('image');
+        input.files = event.dataTransfer.files;
+        previewImage(input);
+    }
+</script>
 
 </html>
