@@ -1,7 +1,7 @@
 @extends('layouts.app-admin')
 @section('content')
-    <div class="max-w-4xl mx-auto mt-10 min-h-100  overflow-scroll">
-        <h1 class="text-3xl font-bold mb-6 text-center">Phones Inventory</h1>
+    <div class="min-w-screen grid-col-1 mx-auto mt-10 min-h-100">
+        <h3 class="text-3xl font-bold mb-6 text-center px-10">Phone Case Inventory</h3>
 
         <!-- Success message -->
         @if(session('success'))
@@ -26,7 +26,7 @@
 
             <!-- Drag & Drop Image Upload -->
             <div class="border-2 border-dashed rounded-lg p-6 text-center cursor-pointer
-                                   hover:border-blue-500 transition relative"
+                                                   hover:border-blue-500 transition relative"
                 onclick="document.getElementById('image').click()" ondragover="event.preventDefault()"
                 ondrop="handleDrop(event)">
                 <img id="preview" class="hidden mx-auto mb-3 max-h-32 object-contain" />
@@ -47,7 +47,7 @@
 
 
         <!-- Phones Table -->
-        <div class="bg-white shadow rounded overflow-scroll">
+        <div class="bg-white shadow rounded overflow-scroll min-w-screen px-10">
             <table class="min-w-full table-auto">
                 <thead class="bg-gray-200">
                     <tr>
@@ -73,10 +73,10 @@
                             </td>
                             <td>
                                 <form action="{{ route('phones.edit', $phone->id) }}" method="POST" ">
-                                @csrf
-                                @method('GET')
+                                                                @csrf
+                                                                @method('GET')
 
-                                <button class=" text-red-600 hover:underline">
+                                                                <button class=" text-red-600 hover:underline">
                                     Edit
                                     </button>
                                 </form>
