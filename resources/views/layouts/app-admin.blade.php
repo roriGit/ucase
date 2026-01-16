@@ -47,12 +47,16 @@
                         src="images/Ucase-logo-final-02.png" loading="lazy" width="130" sizes="130px" alt=""
                         srcset="images/Ucase-logo-final-02-p-500.png 500w, images/Ucase-logo-final-02-p-800.png 800w, images/Ucase-logo-final-02-p-1080.png 1080w, images/Ucase-logo-final-02.png 1920w"
                         class="image"></div>
-                <a id="w-node-_4b84131c-0754-dfda-d19c-e6503af5a026-67d5300b" href="index.html" aria-current="page"
+                <a id="w-node-_4b84131c-0754-dfda-d19c-e6503af5a026-67d5300b" href="/" aria-current="page"
                     class="logo-link-block w-inline-block w--current"></a>
                 <nav role="navigation" id="w-node-bb0bf636-1622-2bac-85b3-47f867d53010-67d5300b"
                     class="nav-menu w-nav-menu">
                     <div class="nav-menu-wrapper">
-                        <a id="w-node-bb0bf636-1622-2bac-85b3-47f867d5301a-67d5300b" href="contact-us.html"
+                        <a id="w-node-bb0bf636-1622-2bac-85b3-47f867d5301a-67d5300b" href="/phone_case_requests"
+                            class="navigation-button w-button">View Requests</a>
+                        <a id="w-node-bb0bf636-1622-2bac-85b3-47f867d5301a-67d5300b" href="/phones"
+                            class="navigation-button w-button">Add Model</a>
+                        <a id="w-node-bb0bf636-1622-2bac-85b3-47f867d5301a-67d5300b" href="/contact"
                             class="navigation-button w-button">Contact Us</a>
                     </div>
                     <div class="short-fur-pattern hide-desktop"></div>
@@ -262,6 +266,11 @@
         const input = document.getElementById('image');
         input.files = event.dataTransfer.files;
         previewImage(input);
+    }
+
+    function submitStatusChange(event) {
+        statusChangeForm = document.getElementById("statusChangeAdmin")
+        document.getElementById("statusChangeAdminBttn").click()
     }
 </script>
 
