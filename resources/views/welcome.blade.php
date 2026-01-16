@@ -53,89 +53,78 @@
       <div class="_4-column-grid big-buttons">
         <div data-w-id="a2b159e3-7b93-6b8e-545a-468b0003a824" class="lottie-animation">
           <div class="content-padding">
-            <div class="big-lottie-icons-wrapper"><img src="images/ucase---cases-02.png" loading="lazy" alt=""></div>
-            <h3 class="cta-text">iPhone</h3>
-            <div class="w-form">
-              <form id="email-form-2" name="email-form-2" data-name="Email Form 2" method="get"
-                data-wf-page-id="68dfbb9a900caecaec945b7d" data-wf-element-id="2a08a7ea-587f-5bd2-1978-cf691de3fea9">
-                <label for="Phone-case-types">Search for my model</label><select id="Phone-case-types"
-                  name="Phone-case-types" data-name="Phone case types" required="" class="select-field-2 w-select">
-                  <option value="Another option">iPhone case type...</option>
-                  <option value="">iPhone 12</option>
-                  <option value="First">iPhone 13</option>
-                  <option value="Second">iPhone 14</option>
-                  <option value="Third">iPhone 15</option>
-                  <option value="Another option">iPhone 16</option>
+            <form action="{{ route('phones.create_design') }}">
+
+              <div class=" big-lottie-icons-wrapper"><img src="images/ucase---cases-02.png" loading="lazy" alt="">
+              </div>
+              <h3 class="cta-text">iPhone</h3>
+              <div class="w-form">
+                <label for="Phone-case-types">Search for my model</label>
+                <select id="" name="model" data-name="Phone case types" required="" class="select-field-2 w-select">
+                  <option value="">iPhone case type...</option>
+                  @foreach ($iphone as $phone)
+                    <option value="{{ $phone->id }}" attr-slug="">{{ $phone->model }}</option>
+                  @endforeach
                 </select>
-              </form>
-              <div class="w-form-done">
-                <div>Thank you! Your submission has been received!</div>
+                <input type="hidden" name="phone" value="iPhone">
               </div>
-              <div class="w-form-fail">
-                <div>Oops! Something went wrong while submitting the form.</div>
+              <div class="flex justify-center min-w-full">
+
+                <a href="/phones/create_design?phone=iPhone" class="button-2 w-button">Create</a>
+                {{-- <button class="button-2 w-button">Create</button> --}}
               </div>
-            </div>
-          </div>
-          <div class="div-block-2">
-            <a href="iphone-case.html" class="button-2 w-button">Create</a>
+            </form>
           </div>
         </div>
         <div class="lottie-animation">
           <div class="content-padding">
-            <div class="big-lottie-icons-wrapper"><img src="images/ucase---cases-03.png" loading="lazy" alt=""></div>
-            <h3 class="cta-text">Samsung</h3>
-            <div class="w-form">
-              <form id="email-form-2" name="email-form-2" data-name="Email Form 2" method="get"
-                data-wf-page-id="68dfbb9a900caecaec945b7d" data-wf-element-id="a47529c9-3908-ec7d-6229-6938266167fb">
-                <label for="Phone-case-types">Search for my model</label><select id="Phone-case-types"
-                  name="Phone-case-types" data-name="Phone case types" required="" class="select-field-2 w-select">
-                  <option value="Another option">Samsung case type...</option>
-                  <option value="">iPhone 12</option>
-                  <option value="First">iPhone 13</option>
-                  <option value="Second">iPhone 14</option>
-                  <option value="Third">iPhone 15</option>
-                  <option value="Another option">iPhone 16</option>
+
+            <form action="{{ route('phones.create_design') }}">
+
+              <div class=" big-lottie-icons-wrapper"><img src="images/ucase---cases-03.png" loading="lazy" alt="">
+              </div>
+              <h3 class="cta-text">Samsung</h3>
+              <div class="w-form">
+                <label for="Phone-case-types">Search for my model</label>
+                <select id="" name="model" data-name="Phone case types" required="" class="select-field-2 w-select">
+                  <option value="">Samsung case type...</option>
+                  @foreach ($samsung as $phone)
+                    <option value="{{ $phone->id }}" attr-slug="">{{ $phone->model }}</option>
+                  @endforeach
+                  <input type="hidden" name="phone" value="Samsung">
                 </select>
-              </form>
-              <div class="w-form-done">
-                <div>Thank you! Your submission has been received!</div>
               </div>
-              <div class="w-form-fail">
-                <div>Oops! Something went wrong while submitting the form.</div>
+              <div class="flex justify-center min-w-full">
+
+                <a href="/phones/create_design?phone=Samsung" class="button-2 w-button">Create</a>
+                {{-- <button class="button-2 w-button">Create</button> --}}
               </div>
-            </div>
-          </div>
-          <div class="div-block-2">
-            <a href="samsung-case.html" class="button-2 w-button">Create</a>
+            </form>
           </div>
         </div>
         <div class="lottie-animation">
           <div class="content-padding">
-            <div class="big-lottie-icons-wrapper"><img src="images/ucase---cases-04.png" loading="lazy" alt=""></div>
-            <h3 class="cta-text">Huawei</h3>
-            <div class="w-form">
-              <form id="email-form-2" name="email-form-2" data-name="Email Form 2" method="get"
-                data-wf-page-id="68dfbb9a900caecaec945b7d" data-wf-element-id="13f1c431-6986-cf7b-17b0-1c4406e23d16">
-                <label for="Phone-case-types">Search for my model</label><select id="Phone-case-types"
-                  name="Phone-case-types" data-name="Phone case types" required="" class="select-field-2 w-select">
-                  <option value="Another option">Huawei case type...</option>
-                  <option value="">iPhone 12</option>
-                  <option value="First">iPhone 13</option>
-                  <option value="Second">iPhone 14</option>
-                  <option value="Third">iPhone 15</option>
-                  <option value="Another option">iPhone 16</option>
+
+            <form action="{{ route('phones.create_design') }}">
+
+              <div class=" big-lottie-icons-wrapper"><img src="images/ucase---cases-04.png" loading="lazy" alt="">
+              </div>
+              <h3 class="cta-text">Huawei</h3>
+              <div class="w-form">
+                <label for="Phone-case-types">Search for my model</label>
+                <select id="" name="model" data-name="Phone case types" required="" class="select-field-2 w-select">
+                  <option value="">Huawei case type...</option>
+                  @foreach ($huawei as $phone)
+                    <option value="{{ $phone->id }}" attr-slug="">{{ $phone->model }}</option>
+                  @endforeach
                 </select>
-              </form>
-              <div class="w-form-done">
-                <div>Thank you! Your submission has been received!</div>
+                <input type="hidden" name="phone" value="Huawei">
               </div>
-              <div class="w-form-fail">
-                <div>Oops! Something went wrong while submitting the form.</div>
+              <div class="flex justify-center min-w-full">
+                <a href="/phones/create_design?phone=Huawei" class="button-2 w-button">Create</a>
+                {{-- <button class="button-2 w-button">Create</button> --}}
               </div>
-            </div>
-          </div>
-          <div class="div-block-2">
-            <a href="huawei-case.html" class="button-2 w-button">Create</a>
+            </form>
           </div>
         </div>
       </div>
